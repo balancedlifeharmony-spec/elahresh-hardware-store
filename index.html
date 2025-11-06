@@ -1,170 +1,190 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>P.I.T. Tools / ورش - Multilingual</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>P.I.T. Workshop — Heavy Duty</title>
   <style>
-    :root{--accent:#d32f2f;--dark:#222}
+    /* --- Palette & typography --- */
+    :root{
+      --bg:#0b0d0f; --panel:#0f1416; --muted:#9aa3a6; --accent:#d22f2f; --glow:rgba(210,47,47,0.12);
+      --card-shadow: 0 10px 30px rgba(2,6,8,0.6);
+      --radius:12px;
+    }
     *{box-sizing:border-box}
-    body{font-family: "Noto Sans", Arial, system-ui, sans-serif;margin:0;color:var(--dark);background:#f6f7fb}
-    header{background:#0f1724;color:white;padding:14px 18px;display:flex;gap:12px;align-items:center}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand img{height:64px;object-fit:cover;border-radius:4px}
-    .brand h1{margin:0;font-size:20px}
-    .phones{margin-left:auto;text-align:right}
-    .phones div{font-weight:700}
-    nav{display:flex;gap:8px;padding:12px 18px;background:white;align-items:center}
-    nav select{margin-left:auto;padding:8px;border-radius:6px;border:1px solid #ddd}
-    main{padding:28px;max-width:1100px;margin:0 auto}
-    .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-    .hero .left{flex:1;min-width:260px}
-    .hero .right{flex:1;min-width:260px}
-    .card{background:white;padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,36,0.06)}
-    h2{margin-top:0}
-    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-    .service{padding:12px;border-radius:8px;background:linear-gradient(180deg,#fff,#fcfcfd);border:1px solid #eee}
-    footer{padding:18px;text-align:center;color:#555;margin-top:28px}
-    .lang-flag{display:inline-block;margin-right:8px;font-weight:700}
-    /* RTL support: class .rtl on html will flip layout where appropriate */
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 500px at 10% 10%, rgba(255,255,255,0.02), transparent), linear-gradient(180deg,#060708 0%, #0b0d0f 100%);color:#e6e9eb;font-family:Inter,Segoe UI,Roboto,system-ui,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+
+    /* --- layout --- */
+    header{display:flex;align-items:center;gap:18px;padding:18px 28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-bottom:1px solid rgba(255,255,255,0.02)}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#222 0%, #111 100%);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,0.03), 0 6px 20px rgba(0,0,0,0.6)}
+    .logo h1{margin:0;font-size:18px;letter-spacing:0.6px}
+    .tag{color:var(--muted);font-size:13px}
+
+    nav{margin-left:auto;display:flex;align-items:center;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+
+    .lang-switch{background:#0f1314;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:8px;color:var(--muted)}
+
+    main{max-width:1100px;margin:28px auto;padding:0 18px}
+
+    /* --- hero --- */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:stretch}
+    .hero-card{background:linear-gradient(180deg,#0f1416, #0c0e10);padding:26px;border-radius:16px;box-shadow:var(--card-shadow);border:1px solid rgba(255,255,255,0.03)}
+    .hero-left h2{font-size:36px;margin:0 0 10px 0;line-height:1.02}
+    .slogan{display:inline-block;background:linear-gradient(90deg,var(--accent),#ff6b6b);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+    .lead{color:var(--muted);margin-top:6px}
+
+    .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:12px 16px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
+    .btn.primary{background:var(--accent);box-shadow:0 6px 24px var(--glow);border:none}
+    .cta-phone{display:inline-flex;align-items:center;gap:10px}
+
+    /* --- features --- */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feature{background:#0b0f10;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{margin:0 0 6px 0}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* --- gallery --- */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:18px}
+    .thumb{height:140px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#0b0d0f,#070808);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.02);cursor:pointer;transition:transform .24s ease}
+    .thumb:hover{transform:translateY(-6px) scale(1.02)}
+    .thumb img{max-width:100%;max-height:100%;object-fit:contain}
+
+    /* --- contact quickbar (floating) --- */
+    .quickbar{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:12px;z-index:60}
+    .quick{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#111,#0b0d0f);border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(2,6,8,0.6);cursor:pointer}
+    .phone{background:linear-gradient(180deg,var(--accent),#b22525);color:white}
+    .whatsapp{background:linear-gradient(180deg,#25D366,#1da851);color:white}
+
+    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted)}
+
+    /* --- animations --- */
+    .reveal{opacity:0;transform:translateY(18px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* RTL support */
     html.rtl{direction:rtl}
-    html.rtl header{flex-direction:row-reverse}
-    html.rtl .phones{text-align:left;margin-right:auto;margin-left:0}
-    @media (max-width:760px){header{flex-wrap:wrap}.brand h1{font-size:16px}}
+    html.rtl nav{margin-left:0;margin-right:auto}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.hero-card{padding:18px}.features{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:620px){.features{grid-template-columns:1fr}.logo h1{font-size:16px}}
   </style>
 </head>
 <body>
-  <header class="card">
-    <div class="brand">
-      <img src="/mnt/data/c0ece9db-4f31-4889-9105-9fb10cfe676f.png" alt="P.I.T. sign">
+  <header>
+    <div class="logo">
+      <div class="mark"><strong style="color:var(--accent);font-size:20px">P.I.T</strong></div>
       <div>
-        <h1 id="site-title">P.I.T. Tools</h1>
-        <div id="tagline">Your achievement, our tools.</div>
+        <h1 id="site-title">P.I.T. Workshop</h1>
+        <div class="tag" id="tagline">Your achievement. Our tools.</div>
       </div>
     </div>
-    <div class="phones">
-      <div id="phone1">091 528 6206</div>
-      <div id="phone2">091 762 6004</div>
-    </div>
-  </header>
 
-  <nav class="card">
-    <div id="nav-links">
-      <a href="#about" id="nav-about">About</a> ·
-      <a href="#services" id="nav-services">Services</a> ·
-      <a href="#gallery" id="nav-gallery">Gallery</a> ·
+    <nav>
+      <a href="#about" id="nav-about">About</a>
+      <a href="#services" id="nav-services">Services</a>
+      <a href="#gallery" id="nav-gallery">Gallery</a>
       <a href="#contact" id="nav-contact">Contact</a>
-    </div>
-
-    <select id="lang" aria-label="Choose language">
-      <option value="en">English</option>
-      <option value="ar">العربية</option>
-      <option value="tr">Türkçe</option>
-      <option value="fr">Français</option>
-    </select>
-  </nav>
+      <select id="lang" class="lang-switch" aria-label="Language selector">
+        <option value="en">EN</option>
+        <option value="ar">AR</option>
+        <option value="tr">TR</option>
+        <option value="fr">FR</option>
+      </select>
+    </nav>
+  </header>
 
   <main>
     <section class="hero">
-      <div class="left card">
-        <h2 id="headline">High quality workshop tools</h2>
-        <p id="intro">We provide professional tools and equipment for workshops and industrial use. Durable, reliable, and ready for heavy work.</p>
-        <div class="services" id="services">
-          <div class="service"><strong id="s1-title">Hand Tools</strong><div id="s1-desc">Hammers, screwdrivers, wrenches and more.</div></div>
-          <div class="service"><strong id="s2-title">Power Tools</strong><div id="s2-desc">Drills, saws, grinders — high performance.</div></div>
-          <div class="service"><strong id="s3-title">Workshop Equipment</strong><div id="s3-desc">Benches, vises, compressors.</div></div>
-          <div class="service"><strong id="s4-title">Custom Orders</strong><div id="s4-desc">Special requests and bulk supply.</div></div>
+      <div class="hero-left hero-card reveal" id="heroLeft">
+        <h2><span class="slogan">Forged for professionals.</span><br> Heavy‑duty tools that work as hard as you do.</h2>
+        <div class="lead">Built for workshops, garages and job sites. Tough, trusted, and ready — P.I.T. supplies the tools pros demand.</div>
+
+        <div class="cta-row">
+          <button class="btn primary" id="callBtn">Call Us — 091 528 6206</button>
+          <button class="btn" id="quoteBtn">Request a Quote</button>
+        </div>
+
+        <div class="features" style="margin-top:20px">
+          <div class="feature">
+            <h4>Durable Build</h4>
+            <p>Tools chosen for longevity under heavy use.</p>
+          </div>
+          <div class="feature">
+            <h4>Trusted Brands</h4>
+            <p>Quality manufacturers and dependable parts.</p>
+          </div>
+          <div class="feature">
+            <h4>Bulk Supply</h4>
+            <p>Competitive pricing for contractors and shops.</p>
+          </div>
         </div>
       </div>
 
-      <div class="right card" id="about">
-        <h2 id="about-title">About P.I.T.</h2>
-        <p id="about-desc">P.I.T. is a family-run supplier of workshop tools with decades of experience. Our goal: help craftsmen achieve more with better equipment.</p>
-        <p><strong id="contact-label">Contact:</strong> <span id="contact-value">091 528 6206</span></p>
+      <aside class="hero-card reveal" id="heroRight">
+        <h3 id="about-title">About P.I.T.</h3>
+        <p id="about-desc">P.I.T. is a family-run workshop supplier with decades of hands-on experience. We help craftsmen, mechanics and teams get the right tools fast.</p>
+
+        <div style="margin-top:12px">
+          <strong>Hours</strong>
+          <div class="tag">Mon–Sat • 8:00 — 18:00</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <strong>Location</strong>
+          <div class="tag">Main Street Workshop District</div>
+        </div>
+
+        <div style="margin-top:14px">
+          <button class="btn cta-phone" onclick="callNumber()">📞 <span style="font-weight:800;margin-left:6px">091 528 6206</span></button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="gallery" class="reveal" style="margin-top:18px">
+      <h3 style="margin:0 0 12px 0">Gallery</h3>
+      <div class="gallery">
+        <div class="thumb"><img src="/mnt/data/c0ece9db-4f31-4889-9105-9fb10cfe676f.png" alt="shop sign"></div>
+        <div class="thumb"><div style="color:var(--muted)">Tool photo</div></div>
+        <div class="thumb"><div style="color:var(--muted)">Tool photo</div></div>
+        <div class="thumb"><div style="color:var(--muted)">Tool photo</div></div>
       </div>
     </section>
 
-    <section class="card" id="gallery" style="margin-top:18px">
-      <h2 id="gallery-title">Gallery</h2>
-      <p id="gallery-desc">Photos of our products and shop front.</p>
-      <img src="/mnt/data/c0ece9db-4f31-4889-9105-9fb10cfe676f.png" alt="shop sign" style="max-width:100%;border-radius:8px;margin-top:8px">
-    </section>
+    <section id="contact" class="hero-card reveal" style="margin-top:18px">
+      <h3 id="contact-title">Contact & Orders</h3>
+      <p id="contact-desc">Call or message us for pricing, bulk orders, or to check stock.</p>
 
-    <section class="card" id="contact" style="margin-top:18px">
-      <h2 id="contact-title">Contact Us</h2>
-      <p id="contact-desc">Call or visit us — we answer quickly.</p>
-      <form onsubmit="event.preventDefault();alert(translations[currentLang].thank_you)">
+      <form onsubmit="event.preventDefault();alert(translations[currentLang].thank_you)" style="margin-top:12px">
         <label id="form-name-label">Name</label><br>
-        <input required placeholder="" id="name" style="padding:8px;width:100%;margin-bottom:8px;border-radius:6px;border:1px solid #ddd"><br>
-        <label id="form-msg-label">Message</label><br>
-        <textarea required id="message" style="padding:8px;width:100%;height:90px;border-radius:6px;border:1px solid #ddd"></textarea><br>
-        <button type="submit" style="margin-top:8px;padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:white">Send</button>
+        <input required id="name" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;margin-top:6px"><br>
+        <label id="form-msg-label" style="margin-top:8px;display:block">Message</label>
+        <textarea required id="message" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;margin-top:6px;height:100px"></textarea>
+        <div style="margin-top:10px"><button class="btn primary" type="submit">Send Message</button></div>
       </form>
     </section>
+
   </main>
 
+  <div class="quickbar">
+    <a class="quick phone" href="tel:+0091095286206" title="Call us">📞</a>
+    <a class="quick whatsapp" href="https://wa.me/0091095286206" target="_blank" title="WhatsApp">💬</a>
+  </div>
+
   <footer>
-    <div id="footer-text">© P.I.T. Tools</div>
+    <div style="max-width:1100px;margin:0 auto;padding:18px;color:var(--muted)">© P.I.T. — Built for professionals.</div>
   </footer>
 
   <script>
+    // Translations
     const translations = {
-      en: {
-        site_title: 'P.I.T. Tools', tagline: 'Your achievement, our tools.',
-        nav_about:'About', nav_services:'Services', nav_gallery:'Gallery', nav_contact:'Contact',
-        headline:'High quality workshop tools', intro:'We provide professional tools and equipment for workshops and industrial use. Durable, reliable, and ready for heavy work.',
-        s1_title:'Hand Tools', s1_desc:'Hammers, screwdrivers, wrenches and more.',
-        s2_title:'Power Tools', s2_desc:'Drills, saws, grinders — high performance.',
-        s3_title:'Workshop Equipment', s3_desc:'Benches, vises, compressors.',
-        s4_title:'Custom Orders', s4_desc:'Special requests and bulk supply.',
-        about_title:'About P.I.T.', about_desc:'P.I.T. is a family-run supplier of workshop tools with decades of experience. Our goal: help craftsmen achieve more with better equipment.',
-        contact_label:'Contact:', contact_value:'091 528 6206',
-        gallery_title:'Gallery', gallery_desc:'Photos of our products and shop front.',
-        contact_title:'Contact Us', contact_desc:'Call or visit us — we answer quickly.',
-        form_name:'Name', form_msg:'Message', thank_you:'Thank you! We received your message.'
-      },
-      ar: {
-        site_title: 'الأحرش لمعدات الورش', tagline: 'إنجازك... معداتنا',
-        nav_about:'من نحن', nav_services:'خدمات', nav_gallery:'معرض', nav_contact:'اتصل بنا',
-        headline:'معدات ورش عالية الجودة', intro:'نوفّر أدوات ومعدات ورش مهنية للاستخدام الصناعي. متينة وموثوقة ومجهزة للأعمال الشاقة.',
-        s1_title:'أدوات يدوية', s1_desc:'مطارق، مفكات، مفاتيح والمزيد.',
-        s2_title:'أدوات كهربائية', s2_desc:'مناشير، مثاقب، مطاحن — أداء عالٍ.',
-        s3_title:'معدات ورشة', s3_desc:'طاولات عمل، رؤوس مشبك، ضواغط.',
-        s4_title:'طلبات خاصة', s4_desc:'طلبات خاصة وتوريد بالجملة.',
-        about_title:'عن الأحرش', about_desc:'الأحرش مزود عائلي لمعدات الورش بخبرة عقود. هدفنا: مساعدة الحِرَفِيِّين على الإنجاز بأدوات أفضل.',
-        contact_label:'الاتصال:', contact_value:'091 528 6206',
-        gallery_title:'المعرض', gallery_desc:'صور لمنتجاتنا وواجهتنا.',
-        contact_title:'تواصل معنا', contact_desc:'اتصل أو زرنا — نجيب بسرعة.',
-        form_name:'الاسم', form_msg:'الرسالة', thank_you:'شكرًا! تم استلام رسالتك.'
-      },
-      tr: {
-        site_title: 'P.I.T. Aletleri', tagline: 'Başarınız, bizim aletlerimiz.',
-        nav_about:'Hakkımızda', nav_services:'Hizmetler', nav_gallery:'Galeri', nav_contact:'İletişim',
-        headline:'Yüksek kaliteli atölye aletleri', intro:'Atölye ve endüstriyel kullanım için profesyonel aletler ve ekipman sağlıyoruz. Dayanıklı ve güvenilir.',
-        s1_title:'El Aletleri', s1_desc:'Çekiçler, tornavidalar, anahtarlar ve daha fazlası.',
-        s2_title:'Elektrikli Aletler', s2_desc:'Matkaplar, testereler, taşlayıcılar — yüksek performans.',
-        s3_title:'Atölye Ekipmanları', s3_desc:'Tezgahlar, mengeneler, kompresörler.',
-        s4_title:'Özel Siparişler', s4_desc:'Özel talepler ve toptan tedarik.',
-        about_title:'P.I.T. Hakkında', about_desc:'P.I.T., on yıllık deneyime sahip aile işletmesi atölye ekipman tedarikçisidir. Amacımız: zanaatkarların daha iyi ekipmanla daha fazlasını başarmasına yardımcı olmak.',
-        contact_label:'İletişim:', contact_value:'091 528 6206',
-        gallery_title:'Galeri', gallery_desc:'Ürünlerimizin ve mağaza önümüzün fotoğrafları.',
-        contact_title:'İletişime Geçin', contact_desc:'Arayın veya ziyaret edin — hızlı yanıt veriyoruz.',
-        form_name:'İsim', form_msg:'Mesaj', thank_you:'Teşekkürler! Mesajınızı aldık.'
-      },
-      fr: {
-        site_title: 'P.I.T. Outils', tagline: "Votre réussite, nos outils.",
-        nav_about:'À propos', nav_services:'Services', nav_gallery:'Galerie', nav_contact:'Contact',
-        headline:'Outils d\'atelier de haute qualité', intro:'Nous fournissons des outils et équipements professionnels pour ateliers et usage industriel. Durables et fiables.',
-        s1_title:'Outils à main', s1_desc:'Marteaux, tournevis, clés et plus.',
-        s2_title:'Outils électriques', s2_desc:'Perceuses, scies, meuleuses — haute performance.',
-        s3_title:'Équipements d\'atelier', s3_desc:'Établis, étaux, compresseurs.',
-        s4_title:'Commandes spéciales', s4_desc:'Demandes spéciales et fournitures en gros.',
-        about_title:'À propos de P.I.T.', about_desc:'P.I.T. est un fournisseur familial d\'outils d\'atelier avec des décennies d\'expérience. Notre objectif : aider les artisans à accomplir plus avec de meilleurs équipements.',
-        contact_label:'Contact :', contact_value:'091 528 6206',
-        gallery_title:'Galerie', gallery_desc:'Photos de nos produits et devanture.',
-        contact_title:'Contactez-nous', contact_desc:'Appelez ou visitez — nous répondons rapidement.',
-        form_name:'Nom', form_msg:'Message', thank_you:'Merci ! Nous avons reçu votre message.'
-      }
+      en: { site_title: 'P.I.T. Workshop', tagline: 'Your achievement. Our tools.', about_title: 'About P.I.T.', about_desc: 'P.I.T. is a family-run workshop supplier with decades of hands-on experience.', contact_title: 'Contact & Orders', contact_desc: 'Call or message us for pricing, bulk orders, or to check stock.', form_name: 'Name', form_msg: 'Message', thank_you:'Thanks — we received your message.' },
+      ar: { site_title: 'الأحرش لمعدات الورش', tagline: 'إنجازك... معداتنا', about_title:'عن الأحرش', about_desc:'الأحرش مزود عائلي لمعدات الورش بخبرة عقود.', contact_title:'تواصل وطلبات', contact_desc:'اتصل أو راسلنا للأسعار والطلبات بالجملة.', form_name:'الاسم', form_msg:'الرسالة', thank_you:'شكرًا! تم استلام رسالتك.' },
+      tr: { site_title:'P.I.T. Aletleri', tagline:'Başarınız, bizim aletlerimiz.', about_title:'P.I.T. Hakkında', about_desc:'P.I.T., on yıllık deneyime sahip aile işletmesi atölye ekipman tedarikçisidir.', contact_title:'İletişim ve Sipariş', contact_desc:'Fiyat ve stok için bizi arayın veya mesaj atın.', form_name:'İsim', form_msg:'Mesaj', thank_you:'Teşekkürler! Mesajınızı aldık.' },
+      fr: { site_title:'P.I.T. Outils', tagline:"Votre réussite, nos outils.", about_title:'À propos de P.I.T.', about_desc:'P.I.T. est un fournisseur familial d\'outils d\'atelier avec des décennies d\'expérience.', contact_title:'Contact & Commandes', contact_desc:'Appelez ou envoyez-nous un message pour prix et disponibilité.', form_name:'Nom', form_msg:'Message', thank_you:'Merci ! Nous avons reçu votre message.' }
     };
 
     const langSelect = document.getElementById('lang');
@@ -176,33 +196,13 @@
       if(!t) return;
       document.getElementById('site-title').textContent = t.site_title;
       document.getElementById('tagline').textContent = t.tagline;
-      document.getElementById('nav-about').textContent = t.nav_about;
-      document.getElementById('nav-services').textContent = t.nav_services;
-      document.getElementById('nav-gallery').textContent = t.nav_gallery;
-      document.getElementById('nav-contact').textContent = t.nav_contact;
-      document.getElementById('headline').textContent = t.headline;
-      document.getElementById('intro').textContent = t.intro;
-      document.getElementById('s1-title').textContent = t.s1_title;
-      document.getElementById('s1-desc').textContent = t.s1_desc;
-      document.getElementById('s2-title').textContent = t.s2_title;
-      document.getElementById('s2-desc').textContent = t.s2_desc;
-      document.getElementById('s3-title').textContent = t.s3_title;
-      document.getElementById('s3-desc').textContent = t.s3_desc;
-      document.getElementById('s4-title').textContent = t.s4_title;
-      document.getElementById('s4-desc').textContent = t.s4_desc;
       document.getElementById('about-title').textContent = t.about_title;
       document.getElementById('about-desc').textContent = t.about_desc;
-      document.getElementById('contact-label').textContent = t.contact_label;
-      document.getElementById('contact-value').textContent = t.contact_value;
-      document.getElementById('gallery-title').textContent = t.gallery_title;
-      document.getElementById('gallery-desc').textContent = t.gallery_desc;
       document.getElementById('contact-title').textContent = t.contact_title;
       document.getElementById('contact-desc').textContent = t.contact_desc;
       document.getElementById('form-name-label').textContent = t.form_name;
       document.getElementById('form-msg-label').textContent = t.form_msg;
-      document.getElementById('footer-text').textContent = t.site_title + ' ©';
 
-      // direction
       if(lang === 'ar'){
         document.documentElement.classList.add('rtl');
         document.documentElement.lang = 'ar';
@@ -211,14 +211,24 @@
         document.documentElement.lang = lang;
       }
 
-      currentLang = lang;
       localStorage.setItem('lang', lang);
+      currentLang = lang;
     }
 
     langSelect.addEventListener('change', e=>applyTranslation(e.target.value));
-
-    // initial apply
     applyTranslation(currentLang);
+
+    // reveal on scroll
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); })
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+
+    // quick actions
+    function callNumber(){ window.location.href = 'tel:+0091095286206' }
+    document.getElementById('callBtn').addEventListener('click', callNumber);
+    document.getElementById('quoteBtn').addEventListener('click', ()=>{ alert('Please call or WhatsApp us for quotes: 091 528 6206') });
   </script>
 </body>
 </html>
