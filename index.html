@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>P.I.T. Tools / ورش - Multilingual</title>
+  <style>
+    :root{--accent:#d32f2f;--dark:#222}
+    *{box-sizing:border-box}
+    body{font-family: "Noto Sans", Arial, system-ui, sans-serif;margin:0;color:var(--dark);background:#f6f7fb}
+    header{background:#0f1724;color:white;padding:14px 18px;display:flex;gap:12px;align-items:center}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{height:64px;object-fit:cover;border-radius:4px}
+    .brand h1{margin:0;font-size:20px}
+    .phones{margin-left:auto;text-align:right}
+    .phones div{font-weight:700}
+    nav{display:flex;gap:8px;padding:12px 18px;background:white;align-items:center}
+    nav select{margin-left:auto;padding:8px;border-radius:6px;border:1px solid #ddd}
+    main{padding:28px;max-width:1100px;margin:0 auto}
+    .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .hero .left{flex:1;min-width:260px}
+    .hero .right{flex:1;min-width:260px}
+    .card{background:white;padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,36,0.06)}
+    h2{margin-top:0}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+    .service{padding:12px;border-radius:8px;background:linear-gradient(180deg,#fff,#fcfcfd);border:1px solid #eee}
+    footer{padding:18px;text-align:center;color:#555;margin-top:28px}
+    .lang-flag{display:inline-block;margin-right:8px;font-weight:700}
+    /* RTL support: class .rtl on html will flip layout where appropriate */
+    html.rtl{direction:rtl}
+    html.rtl header{flex-direction:row-reverse}
+    html.rtl .phones{text-align:left;margin-right:auto;margin-left:0}
+    @media (max-width:760px){header{flex-wrap:wrap}.brand h1{font-size:16px}}
+  </style>
+</head>
+<body>
+  <header class="card">
+    <div class="brand">
+      <img src="/mnt/data/c0ece9db-4f31-4889-9105-9fb10cfe676f.png" alt="P.I.T. sign">
+      <div>
+        <h1 id="site-title">P.I.T. Tools</h1>
+        <div id="tagline">Your achievement, our tools.</div>
+      </div>
+    </div>
+    <div class="phones">
+      <div id="phone1">091 528 6206</div>
+      <div id="phone2">091 762 6004</div>
+    </div>
+  </header>
+
+  <nav class="card">
+    <div id="nav-links">
+      <a href="#about" id="nav-about">About</a> ·
+      <a href="#services" id="nav-services">Services</a> ·
+      <a href="#gallery" id="nav-gallery">Gallery</a> ·
+      <a href="#contact" id="nav-contact">Contact</a>
+    </div>
+
+    <select id="lang" aria-label="Choose language">
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+      <option value="tr">Türkçe</option>
+      <option value="fr">Français</option>
+    </select>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="left card">
+        <h2 id="headline">High quality workshop tools</h2>
+        <p id="intro">We provide professional tools and equipment for workshops and industrial use. Durable, reliable, and ready for heavy work.</p>
+        <div class="services" id="services">
+          <div class="service"><strong id="s1-title">Hand Tools</strong><div id="s1-desc">Hammers, screwdrivers, wrenches and more.</div></div>
+          <div class="service"><strong id="s2-title">Power Tools</strong><div id="s2-desc">Drills, saws, grinders — high performance.</div></div>
+          <div class="service"><strong id="s3-title">Workshop Equipment</strong><div id="s3-desc">Benches, vises, compressors.</div></div>
+          <div class="service"><strong id="s4-title">Custom Orders</strong><div id="s4-desc">Special requests and bulk supply.</div></div>
+        </div>
+      </div>
+
+      <div class="right card" id="about">
+        <h2 id="about-title">About P.I.T.</h2>
+        <p id="about-desc">P.I.T. is a family-run supplier of workshop tools with decades of experience. Our goal: help craftsmen achieve more with better equipment.</p>
+        <p><strong id="contact-label">Contact:</strong> <span id="contact-value">091 528 6206</span></p>
+      </div>
+    </section>
+
+    <section class="card" id="gallery" style="margin-top:18px">
+      <h2 id="gallery-title">Gallery</h2>
+      <p id="gallery-desc">Photos of our products and shop front.</p>
+      <img src="/mnt/data/c0ece9db-4f31-4889-9105-9fb10cfe676f.png" alt="shop sign" style="max-width:100%;border-radius:8px;margin-top:8px">
+    </section>
+
+    <section class="card" id="contact" style="margin-top:18px">
+      <h2 id="contact-title">Contact Us</h2>
+      <p id="contact-desc">Call or visit us — we answer quickly.</p>
+      <form onsubmit="event.preventDefault();alert(translations[currentLang].thank_you)">
+        <label id="form-name-label">Name</label><br>
+        <input required placeholder="" id="name" style="padding:8px;width:100%;margin-bottom:8px;border-radius:6px;border:1px solid #ddd"><br>
+        <label id="form-msg-label">Message</label><br>
+        <textarea required id="message" style="padding:8px;width:100%;height:90px;border-radius:6px;border:1px solid #ddd"></textarea><br>
+        <button type="submit" style="margin-top:8px;padding:10px 14px;border-radius:8px;border:none;background:var(--accent);color:white">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div id="footer-text">© P.I.T. Tools</div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        site_title: 'P.I.T. Tools', tagline: 'Your achievement, our tools.',
+        nav_about:'About', nav_services:'Services', nav_gallery:'Gallery', nav_contact:'Contact',
+        headline:'High quality workshop tools', intro:'We provide professional tools and equipment for workshops and industrial use. Durable, reliable, and ready for heavy work.',
+        s1_title:'Hand Tools', s1_desc:'Hammers, screwdrivers, wrenches and more.',
+        s2_title:'Power Tools', s2_desc:'Drills, saws, grinders — high performance.',
+        s3_title:'Workshop Equipment', s3_desc:'Benches, vises, compressors.',
+        s4_title:'Custom Orders', s4_desc:'Special requests and bulk supply.',
+        about_title:'About P.I.T.', about_desc:'P.I.T. is a family-run supplier of workshop tools with decades of experience. Our goal: help craftsmen achieve more with better equipment.',
+        contact_label:'Contact:', contact_value:'091 528 6206',
+        gallery_title:'Gallery', gallery_desc:'Photos of our products and shop front.',
+        contact_title:'Contact Us', contact_desc:'Call or visit us — we answer quickly.',
+        form_name:'Name', form_msg:'Message', thank_you:'Thank you! We received your message.'
+      },
+      ar: {
+        site_title: 'الأحرش لمعدات الورش', tagline: 'إنجازك... معداتنا',
+        nav_about:'من نحن', nav_services:'خدمات', nav_gallery:'معرض', nav_contact:'اتصل بنا',
+        headline:'معدات ورش عالية الجودة', intro:'نوفّر أدوات ومعدات ورش مهنية للاستخدام الصناعي. متينة وموثوقة ومجهزة للأعمال الشاقة.',
+        s1_title:'أدوات يدوية', s1_desc:'مطارق، مفكات، مفاتيح والمزيد.',
+        s2_title:'أدوات كهربائية', s2_desc:'مناشير، مثاقب، مطاحن — أداء عالٍ.',
+        s3_title:'معدات ورشة', s3_desc:'طاولات عمل، رؤوس مشبك، ضواغط.',
+        s4_title:'طلبات خاصة', s4_desc:'طلبات خاصة وتوريد بالجملة.',
+        about_title:'عن الأحرش', about_desc:'الأحرش مزود عائلي لمعدات الورش بخبرة عقود. هدفنا: مساعدة الحِرَفِيِّين على الإنجاز بأدوات أفضل.',
+        contact_label:'الاتصال:', contact_value:'091 528 6206',
+        gallery_title:'المعرض', gallery_desc:'صور لمنتجاتنا وواجهتنا.',
+        contact_title:'تواصل معنا', contact_desc:'اتصل أو زرنا — نجيب بسرعة.',
+        form_name:'الاسم', form_msg:'الرسالة', thank_you:'شكرًا! تم استلام رسالتك.'
+      },
+      tr: {
+        site_title: 'P.I.T. Aletleri', tagline: 'Başarınız, bizim aletlerimiz.',
+        nav_about:'Hakkımızda', nav_services:'Hizmetler', nav_gallery:'Galeri', nav_contact:'İletişim',
+        headline:'Yüksek kaliteli atölye aletleri', intro:'Atölye ve endüstriyel kullanım için profesyonel aletler ve ekipman sağlıyoruz. Dayanıklı ve güvenilir.',
+        s1_title:'El Aletleri', s1_desc:'Çekiçler, tornavidalar, anahtarlar ve daha fazlası.',
+        s2_title:'Elektrikli Aletler', s2_desc:'Matkaplar, testereler, taşlayıcılar — yüksek performans.',
+        s3_title:'Atölye Ekipmanları', s3_desc:'Tezgahlar, mengeneler, kompresörler.',
+        s4_title:'Özel Siparişler', s4_desc:'Özel talepler ve toptan tedarik.',
+        about_title:'P.I.T. Hakkında', about_desc:'P.I.T., on yıllık deneyime sahip aile işletmesi atölye ekipman tedarikçisidir. Amacımız: zanaatkarların daha iyi ekipmanla daha fazlasını başarmasına yardımcı olmak.',
+        contact_label:'İletişim:', contact_value:'091 528 6206',
+        gallery_title:'Galeri', gallery_desc:'Ürünlerimizin ve mağaza önümüzün fotoğrafları.',
+        contact_title:'İletişime Geçin', contact_desc:'Arayın veya ziyaret edin — hızlı yanıt veriyoruz.',
+        form_name:'İsim', form_msg:'Mesaj', thank_you:'Teşekkürler! Mesajınızı aldık.'
+      },
+      fr: {
+        site_title: 'P.I.T. Outils', tagline: "Votre réussite, nos outils.",
+        nav_about:'À propos', nav_services:'Services', nav_gallery:'Galerie', nav_contact:'Contact',
+        headline:'Outils d\'atelier de haute qualité', intro:'Nous fournissons des outils et équipements professionnels pour ateliers et usage industriel. Durables et fiables.',
+        s1_title:'Outils à main', s1_desc:'Marteaux, tournevis, clés et plus.',
+        s2_title:'Outils électriques', s2_desc:'Perceuses, scies, meuleuses — haute performance.',
+        s3_title:'Équipements d\'atelier', s3_desc:'Établis, étaux, compresseurs.',
+        s4_title:'Commandes spéciales', s4_desc:'Demandes spéciales et fournitures en gros.',
+        about_title:'À propos de P.I.T.', about_desc:'P.I.T. est un fournisseur familial d\'outils d\'atelier avec des décennies d\'expérience. Notre objectif : aider les artisans à accomplir plus avec de meilleurs équipements.',
+        contact_label:'Contact :', contact_value:'091 528 6206',
+        gallery_title:'Galerie', gallery_desc:'Photos de nos produits et devanture.',
+        contact_title:'Contactez-nous', contact_desc:'Appelez ou visitez — nous répondons rapidement.',
+        form_name:'Nom', form_msg:'Message', thank_you:'Merci ! Nous avons reçu votre message.'
+      }
+    };
+
+    const langSelect = document.getElementById('lang');
+    let currentLang = localStorage.getItem('lang') || 'en';
+    langSelect.value = currentLang;
+
+    function applyTranslation(lang){
+      const t = translations[lang];
+      if(!t) return;
+      document.getElementById('site-title').textContent = t.site_title;
+      document.getElementById('tagline').textContent = t.tagline;
+      document.getElementById('nav-about').textContent = t.nav_about;
+      document.getElementById('nav-services').textContent = t.nav_services;
+      document.getElementById('nav-gallery').textContent = t.nav_gallery;
+      document.getElementById('nav-contact').textContent = t.nav_contact;
+      document.getElementById('headline').textContent = t.headline;
+      document.getElementById('intro').textContent = t.intro;
+      document.getElementById('s1-title').textContent = t.s1_title;
+      document.getElementById('s1-desc').textContent = t.s1_desc;
+      document.getElementById('s2-title').textContent = t.s2_title;
+      document.getElementById('s2-desc').textContent = t.s2_desc;
+      document.getElementById('s3-title').textContent = t.s3_title;
+      document.getElementById('s3-desc').textContent = t.s3_desc;
+      document.getElementById('s4-title').textContent = t.s4_title;
+      document.getElementById('s4-desc').textContent = t.s4_desc;
+      document.getElementById('about-title').textContent = t.about_title;
+      document.getElementById('about-desc').textContent = t.about_desc;
+      document.getElementById('contact-label').textContent = t.contact_label;
+      document.getElementById('contact-value').textContent = t.contact_value;
+      document.getElementById('gallery-title').textContent = t.gallery_title;
+      document.getElementById('gallery-desc').textContent = t.gallery_desc;
+      document.getElementById('contact-title').textContent = t.contact_title;
+      document.getElementById('contact-desc').textContent = t.contact_desc;
+      document.getElementById('form-name-label').textContent = t.form_name;
+      document.getElementById('form-msg-label').textContent = t.form_msg;
+      document.getElementById('footer-text').textContent = t.site_title + ' ©';
+
+      // direction
+      if(lang === 'ar'){
+        document.documentElement.classList.add('rtl');
+        document.documentElement.lang = 'ar';
+      } else {
+        document.documentElement.classList.remove('rtl');
+        document.documentElement.lang = lang;
+      }
+
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    langSelect.addEventListener('change', e=>applyTranslation(e.target.value));
+
+    // initial apply
+    applyTranslation(currentLang);
+  </script>
+</body>
+</html>
